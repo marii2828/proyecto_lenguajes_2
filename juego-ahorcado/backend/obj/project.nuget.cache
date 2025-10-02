@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "8+xDtAacLz8=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\acuna\\OneDrive\\Escritorio\\Proyecto\\juego-ahorcado\\backend\\game-logic-fsharp.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\acuna\\.nuget\\packages\\fsharp.core\\9.0.303\\fsharp.core.9.0.303.nupkg.sha512",
+    "C:\\Users\\acuna\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.20\\microsoft.netcore.app.ref.8.0.20.nupkg.sha512",
+    "C:\\Users\\acuna\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.20\\microsoft.windowsdesktop.app.ref.8.0.20.nupkg.sha512",
+    "C:\\Users\\acuna\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.20\\microsoft.aspnetcore.app.ref.8.0.20.nupkg.sha512",
+    "C:\\Users\\acuna\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.20\\microsoft.netcore.app.host.win-x64.8.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}

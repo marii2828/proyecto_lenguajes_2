@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="GameState.fs" />
+        <Compile Include="WordManager.fs" />
+        <Compile Include="GameLogic.fs" />
+        <Compile Include="HangmanAPI.fs" />
+        <Compile Include="main.fs" />
+    </ItemGroup>
+</Project>
