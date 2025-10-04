@@ -1,0 +1,22 @@
+Inicio del Juego:
+    Usuario presiona "Nuevo Juego"
+    Frontend llama start_game()
+    Se ejecuta comando F#: dotnet run -- start default
+    Backend selecciona palabra aleatoria
+    Crea estado inicial y lo guarda
+    Retorna palabra enmascarada y estado
+    Frontend actualiza interfaz
+
+Durante el Juego:
+    Usuario ingresa letra
+    Frontend valida entrada
+    Ejecuta comando F#: dotnet run -- guess default A
+    Backend procesa intento con makeGuess()
+    Actualiza estado y lo guarda
+    Retorna resultado y mensaje
+    Frontend actualiza interfaz y dibuja ahorcado
+    
+Persistencia:
+    Cada cambio se guarda en game_default.state
+    Formato: PALABRA|letras_intentadas|errores|max_intentos|estado
+    Permite recuperar juego si se cierra la aplicación

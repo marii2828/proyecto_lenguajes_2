@@ -1,3 +1,6 @@
+//Punto de entrada del programa
+//ejecuta el comando que se le pasa como argumento
+
 module Main
 
 open System

@@ -1,3 +1,6 @@
+//Gestiona la API del juego; maneja el estado del juego, las palabras, los intentos, etc.
+//comunica el estado del juego con el frontend y con el backend
+
 module Hangman.API
 
 open Hangman.GameState
@@ -6,9 +9,11 @@ open Hangman.WordManager
 open System.Collections.Generic
 open System.IO
 
+//crea el juego
 type HangmanGame() =
     let mutable currentState = initialGameState "" 6
     
+    //inicia un nuevo juego
     member this.StartNewGame(?word: string, ?maxAttempts: int) =
         let gameWord = defaultArg word (getRandomWord())
         let attempts = defaultArg maxAttempts 6
@@ -16,6 +21,7 @@ type HangmanGame() =
         let masked, remaining, _ = getGameInfo currentState
         (masked, remaining, "¡Juego iniciado!")
     
+    //realiza un intento de adivinar una letra
     member this.MakeGuess guess =
         if String.length guess <> 1 then
             (getMaskedWord currentState, getRemainingAttempts currentState, "Ingresa solo una letra")
@@ -25,6 +31,7 @@ type HangmanGame() =
             let masked, remaining, incorrect = getGameInfo currentState
             (masked, remaining, message)
     
+    //obtiene el estado actual del juego
     member this.GetGameState() =
         let masked, remaining, incorrect = getGameInfo currentState
         let status = 
@@ -35,20 +42,26 @@ type HangmanGame() =
         
         (masked, remaining, incorrect, status, currentState.Word)
     
+    //obtiene la palabra actual
     member this.GetCurrentWord() =
         currentState.Word
     
+    //carga el estado del juego
     member this.LoadState(state: GameState) =
         currentState <- state
     
+    //obtiene el estado actual del juego
     member this.GetRawState() =
         currentState
     
+    //verifica si el juego ha terminado
     member this.IsGameOver() =
         isGameOver currentState
 
+//obtiene el archivo de estado del juego
 let getStateFilePath gameId = sprintf "game_%s.state" gameId
 
+//guarda el estado del juego
 let saveGameState gameId (gameState: GameState) =
     let filePath = getStateFilePath gameId
     let content = sprintf "%s|%s|%d|%d|%s" 
@@ -59,6 +72,7 @@ let saveGameState gameId (gameState: GameState) =
                     (match gameState.Status with | Playing -> "playing" | Won -> "won" | Lost -> "lost")
     File.WriteAllText(filePath, content)
 
+//carga el estado del juego
 let loadGameState gameId =
     let filePath = getStateFilePath gameId
     if File.Exists(filePath) then
@@ -88,11 +102,13 @@ let loadGameState gameId =
         | _ -> None
     else None
 
+//elimina el estado del juego
 let deleteGameState gameId =
     let filePath = getStateFilePath gameId
     if File.Exists(filePath) then
         File.Delete(filePath)
 
+//ejecuta el comando que se le paso como argumeto 
 let executeCommand args =
     match args with
     | [| "start" |] ->

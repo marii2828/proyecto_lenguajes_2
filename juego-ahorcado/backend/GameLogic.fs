@@ -1,7 +1,17 @@
+//Manja la logica del juego; las letras que se ingresan, si son parte de la palabara, 
+//si son incorrectas, si ya se habían ingresado con anterioridad, etc.
+
 module Hangman.GameLogic
 
 open Hangman.GameState
 
+//verifica si la letra ingresada es parte de la palabra
+//si es asi, se agrega a la lista de letras adivinadas
+//si no, se agrega a la lista de letras incorrectas
+//si la letra ya se había ingresado con anterioridad, se retorna un mensaje de error
+//si la letra es incorrecta, se incrementa el contador de intentos incorrectos
+//si el contador de intentos incorrectos es igual a la cantidad de intentos maximos, se retorna un mensaje de perdida
+//si la letra es correcta, se retorna un mensaje de que se ha ganado el jeugo 
 let makeGuess guess gameState =
     let guessUpper = System.Char.ToUpper(guess)
     
@@ -42,6 +52,8 @@ let makeGuess guess gameState =
         
         newGameState, message
 
+//obtiene el estado actual del juego; la palabra oculta, la cantidad de intentos restantes, 
+//las letras incorrectas
 let getGameInfo gameState =
     let maskedWord = getMaskedWord gameState
     let remaining = getRemainingAttempts gameState

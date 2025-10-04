@@ -7,6 +7,7 @@ open System.IO
 
 let randomGenerator = Random()
 
+//obtiene la palabra del archivo words.txt que sera utilizada para el juergo
 let getWord (rutaArchivo: string) : string option =
     let palabras =
         try
