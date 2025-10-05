@@ -1,70 +1,149 @@
-# 🎮 Menú de Juegos - Proyecto Lenguajes
+# Menu de Juegos - Proyecto Lenguajes
 
-## Descripción
-Este proyecto incluye un menú principal que permite acceder a dos juegos implementados en diferentes lenguajes:
+## Descripcion
+Sistema de juegos integrado que proporciona acceso unificado a dos juegos implementados con arquitectura hibrida F#/Python:
 
-- **Sopa de Letras**: Implementado en F# (backend) y Python (frontend)
-- **Ahorcado**: Implementado en F# (backend) y Python (frontend)
+- **Sopa de Letras**: Generacion de tableros dinamicos con busqueda de palabras
+- **Ahorcado**: Juego clasico de adivinanza de palabras con dibujo interactivo
 
-## 🚀 Cómo ejecutar
+## Arquitectura del Sistema
 
-### Ejecutar el menú principal
-```bash
-python menu_principal.py
-```
+### Menu Principal
+- **Navegacion por pantallas**: Sistema unificado sin ventanas separadas
+- **Interfaz consistente**: Paleta de colores y tipografia estandarizada
+- **Gestion de memoria**: Limpieza automatica de widgets al cambiar pantallas
+- **Experiencia fluida**: Transiciones suaves entre juegos
 
-### Funcionalidades del menú
+### Comunicacion Backend-Frontend
+- **F# Backend**: Logica de negocio y algoritmos
+- **Python Frontend**: Interfaz grafica e interaccion del usuario
+- **Protocolo JSON**: Comunicacion estructurada via subprocess
+- **Persistencia**: Estado de juego mantenido en archivos
 
-#### 🧩 Sopa de Letras
-- **Cambio de pantalla**: Al seleccionar este juego, la ventana actual cambia para mostrar el juego de sopa de letras
-- **Botón "Volver al menú"**: Permite regresar al menú principal sin cerrar la aplicación
-- **Funcionalidades del juego**:
-  - Selección secuencial de letras haciendo clic
-  - Verificación de palabras
-  - Resolución automática con retraso de 2 segundos
-  - Temporizador del juego
-  - Generación aleatoria de cada nueva partida
+## Juegos Implementados
 
-#### 🎯 Ahorcado
-- **Ventana separada**: Al seleccionar este juego, se abre en una ventana independiente
-- **Ejecución paralela**: Puedes mantener ambas ventanas abiertas simultáneamente
-- **Backend F#**: Utiliza la lógica de negocio implementada en F#
+### Sopa de Letras
+**Funcionalidad**:
+- Generacion aleatoria de tableros de diferentes tamanos
+- Colocacion inteligente de palabras en multiples direcciones
+- Validacion en tiempo real de selecciones del usuario
+- Resolucion automatica con visualizacion de palabras restantes
+- Temporizador de juego y estadisticas de progreso
 
-## 📁 Estructura del proyecto
+**Componentes Tecnicos**:
+- **Backend F# (.NET 9.0)**: 
+  - `Sopa.Core`: Logica de dominio, generacion y validacion
+  - `Sopa.Cli`: Interfaz de linea de comandos para comunicacion
+- **Frontend Python**: 
+  - `sopa_letras_screen.py`: Pantalla integrada al menu
+  - `ui/board.py`: Componente de tablero interactivo
+  - `services/backend.py`: Cliente para comunicacion con F#
+
+**Algoritmos**:
+- Generacion de grillas con semillas aleatorias
+- Colocacion de palabras en 8 direcciones posibles
+- Deteccion de colisiones y solapamientos
+- Busqueda y validacion de patrones
+
+### Ahorcado  
+**Funcionalidad**:
+- Seleccion aleatoria de palabras desde diccionario
+- Visualizacion progresiva del dibujo del ahorcado
+- Tracking de letras correctas e incorrectas
+- Persistencia de estado entre sesiones
+- Interfaz visual con retroalimentacion inmediata
+
+**Componentes Tecnicos**:
+- **Backend F# (.NET 6.0/8.0)**:
+  - `GameState.fs`: Manejo de estado del juego
+  - `GameLogic.fs`: Logica de adivinanza y validaciones
+  - `WordManager.fs`: Gestion de diccionario de palabras
+  - `HangmanAPI.fs`: API de comandos para frontend
+- **Frontend Python**:
+  - `ahorcado_screen.py`: Pantalla integrada al menu
+  - `hangman.py`: Version standalone (legacy)
+
+**Persistencia**:
+- Estado guardado en formato: `PALABRA|letras_intentadas|errores|max_intentos|estado`
+- Recuperacion automatica al reiniciar la aplicacion
+- Manejo de multiples sesiones de juego
+
+## Estructura de Directorios
 
 ```
 proyecto_lenguajes_2/
-├── menu_principal.py          # Menú principal del sistema
-├── juego-sopa-letras/         # Implementación completa de sopa de letras
-│   ├── backend/               # Backend en F# (.NET 9.0)
-│   ├── frontend/              # Frontend en Python/tkinter
-│   │   ├── app.py             # Aplicación standalone original
-│   │   ├── sopa_letras_screen.py  # Pantalla para el menú principal
-│   │   ├── services/          # Comunicación con backend
-│   │   └── ui/                # Componentes de interfaz
-│   └── data/                  # Palabras para el juego
-└── juego-ahorcado/            # Implementación completa de ahorcado
-    ├── backend/               # Backend en F# (.NET 6.0/8.0)
-    └── frontend/              # Frontend en Python/tkinter
+├── menu_principal.py                    # Punto de entrada principal
+├── README.md                           # Documentacion del proyecto
+├── juego-sopa-letras/                  # Modulo completo sopa de letras
+│   ├── backend/                        # Backend F# (.NET 9.0)
+│   │   ├── Sopa.sln                   # Solucion de Visual Studio
+│   │   ├── Sopa.Core/                 # Libreria principal
+│   │   │   ├── Domain.fs              # Tipos de dominio
+│   │   │   ├── Generator.fs           # Generacion de tableros
+│   │   │   ├── Validator.fs           # Validacion de selecciones
+│   │   │   ├── Solver.fs              # Resolucion automatica
+│   │   │   └── Sopa.Core.fsproj       # Configuracion del proyecto
+│   │   └── Sopa.Cli/                  # Interfaz de linea de comandos
+│   │       ├── Program.fs             # Punto de entrada CLI
+│   │       └── Sopa.Cli.fsproj        # Configuracion del proyecto
+│   ├── frontend/                       # Frontend Python/tkinter
+│   │   ├── sopa_letras_screen.py      # Pantalla principal del juego
+│   │   ├── services/                   # Servicios de comunicacion
+│   │   │   └── backend.py             # Cliente backend F#
+│   │   └── ui/                        # Componentes de interfaz
+│   │       ├── board.py               # Tablero interactivo
+│   │       └── palette.py             # Paleta de colores
+│   └── data/                          # Recursos del juego
+│       └── words.txt                  # Diccionario de palabras
+├── juego-ahorcado/                     # Modulo completo ahorcado
+│   ├── backend/                        # Backend F# (.NET 6.0/8.0)
+│   │   ├── main.fs                    # Punto de entrada
+│   │   ├── GameState.fs               # Estado del juego
+│   │   ├── GameLogic.fs               # Logica de adivinanza
+│   │   ├── WordManager.fs             # Gestion de palabras
+│   │   ├── HangmanAPI.fs              # API de comandos
+│   │   ├── words.txt                  # Diccionario local
+│   │   └── game-logic-fsharp.fsproj   # Configuracion del proyecto
+│   ├── frontend/                       # Frontend Python/tkinter
+│   │   ├── ahorcado_screen.py         # Pantalla integrada
+│   │   └── hangman.py                 # Version standalone
+│   └── flujodeejecucion.txt           # Documentacion de flujo
 ```
 
-## 🎨 Características del diseño
+## Requisitos del Sistema
 
-- **Estilo consistente**: Todos los componentes siguen la misma paleta de colores
-- **Interfaz intuitiva**: Navegación clara entre pantallas
-- **Responsive**: Diseño adaptado para una experiencia de usuario fluida
-- **Gestión de memoria**: Limpieza apropiada de widgets al cambiar pantallas
+### Software Base
+- **Python 3.8+** con tkinter (incluido en instalaciones estandar)
+- **.NET 6.0+** para el modulo de ahorcado
+- **.NET 9.0+** para el modulo de sopa de letras
+- **Sistema operativo**: Windows, macOS, Linux
 
-## 🔧 Requisitos técnicos
+### Dependencias Python
+- `tkinter`: Interfaz grafica (incluido con Python)
+- `subprocess`: Comunicacion con procesos F#
+- `json`: Serializacion de datos
+- `os`: Manejo de rutas y archivos
 
-- Python 3.8+
-- .NET 6.0+ para el juego de ahorcado
-- .NET 9.0+ para el juego de sopa de letras
-- tkinter (incluido con Python)
+### Dependencias .NET
+- **FSharp.Core**: Runtime de F#
+- **FSharp.SystemTextJson**: Serializacion JSON para F#
+- **System.Text.Json**: Manejo de JSON en .NET
 
-## 📝 Notas de implementación
+## Instrucciones de Uso
 
-- **Sin comentarios**: Todo el código ha sido limpiado de comentarios según especificación
-- **Generación aleatoria**: Cada partida de sopa de letras genera un tablero diferente
-- **Gestión de procesos**: El juego de ahorcado se ejecuta como proceso independiente
-- **Manejo de errores**: Validación de rutas y manejo de excepciones para mayor robustez
+### Ejecutar el Sistema
+```bash
+cd proyecto_lenguajes_2
+python menu_principal.py
+```
+
+### Compilacion Manual (Opcional)
+```bash
+# Compilar sopa de letras
+cd juego-sopa-letras/backend
+dotnet build
+
+# Compilar ahorcado  
+cd juego-ahorcado/backend
+dotnet build
+```

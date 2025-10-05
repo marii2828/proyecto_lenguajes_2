@@ -37,12 +37,30 @@ class Board:
         self.buttons.clear()
         self.selected_letters.clear()
         self.size = len(grid)
+        
+        # Ajustar tamaño de botones según el tamaño del tablero
+        if self.size <= 12:
+            button_width = 3
+            button_height = 1
+            font_size = 16
+            padding = 2
+        elif self.size <= 16:
+            button_width = 2
+            button_height = 1
+            font_size = 14
+            padding = 1
+        else:  # 17-20
+            button_width = 2
+            button_height = 1
+            font_size = 12
+            padding = 1
 
         for r, row in enumerate(grid):
             row_btns = []
             for c, ch in enumerate(row):
-                b = tk.Button(self.frame, text=ch, width=3, height=1,
-                            font=("Consolas", 16, "bold"),
+                b = tk.Button(self.frame, text=ch, 
+                            width=button_width, height=button_height,
+                            font=("Consolas", font_size, "bold"),
                             bg='#ecf0f1', fg='#2c3e50',
                             activebackground='#bdc3c7',
                             relief='raised', bd=2,
@@ -50,7 +68,7 @@ class Board:
                 
                 b.bind('<Button-1>', lambda e, r=r, c=c: self.on_letter_click(r, c))
                 
-                b.grid(row=r, column=c, padx=2, pady=2)
+                b.grid(row=r, column=c, padx=padding, pady=padding)
                 row_btns.append(b)
             self.buttons.append(row_btns)
         

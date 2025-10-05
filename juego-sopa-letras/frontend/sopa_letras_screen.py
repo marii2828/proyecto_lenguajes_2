@@ -13,11 +13,20 @@ def load_words():
         return [line.strip().upper() for line in f if line.strip()]
 
 class SopaLetrasScreen:
-    def __init__(self, root, volver_callback):
+    def __init__(self, root, volver_callback, board_size=15):
         self.root = root
         self.volver_callback = volver_callback
-        self.root.title("Sopa de Letras - Proyecto Lenguajes")
-        self.root.geometry("1000x1100")
+        self.board_size = board_size
+        
+        # Ajustar geometría según tamaño del tablero
+        base_width = 800
+        base_height = 900 + board_size * 10
+        size_factor = max(1.0, (board_size - 10) / 10)  # Factor de escala
+        window_width = int(base_width + (size_factor * 200))
+        window_height = int(base_height + (size_factor * 150))
+        
+        self.root.title(f"Sopa de Letras {board_size}x{board_size} - Proyecto Lenguajes")
+        self.root.geometry(f"{window_width}x{window_height}")
         self.root.configure(bg='#2c3e50')
         
         self.words = load_words()
@@ -27,11 +36,13 @@ class SopaLetrasScreen:
         self.start_time = None
         self.game_active = False
         
-        self.title_font = ("Arial", 24, "bold")
-        self.word_font = ("Arial", 14, "bold")
-        self.button_font = ("Arial", 12, "bold")
-        self.label_font = ("Arial", 12)
-        self.stats_font = ("Arial", 11)
+        # Ajustar fuentes según tamaño
+        font_scale = max(0.8, min(1.2, 1 + (board_size - 15) * 0.05))
+        self.title_font = ("Arial", int(24 * font_scale), "bold")
+        self.word_font = ("Arial", int(14 * font_scale), "bold")
+        self.button_font = ("Arial", int(12 * font_scale), "bold")
+        self.label_font = ("Arial", int(12 * font_scale))
+        self.stats_font = ("Arial", int(11 * font_scale))
         
         self.setup_ui()
         self.new_game()
@@ -132,7 +143,7 @@ class SopaLetrasScreen:
             pass
 
     def new_game(self):
-        resp = backend.generate(self.words, size=12)
+        resp = backend.generate(self.words, size=self.board_size)
         self.grid = resp["grid"]
         self.words_remaining = self.words[:]
         self.words_found = []
@@ -141,7 +152,7 @@ class SopaLetrasScreen:
         
         self.board.draw(self.grid)
         self.update_stats()
-        self.message_label.config(text="¡Encuentra todas las palabras! Haz clic en las letras para formar palabras y presiona VERIFICAR.", fg='#f39c12')
+        self.message_label.config(text=f"¡Encuentra todas las palabras en el tablero {self.board_size}x{self.board_size}! Haz clic en las letras para formar palabras y presiona VERIFICAR.", fg='#f39c12')
 
     def update_stats(self):
         found_count = len(self.words_found)
