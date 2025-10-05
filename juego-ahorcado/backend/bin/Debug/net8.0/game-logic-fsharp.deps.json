@@ -8,17 +8,17 @@
     ".NETCoreApp,Version=v8.0": {
       "game-logic-fsharp/1.0.0": {
         "dependencies": {
-          "FSharp.Core": "9.0.303"
+          "FSharp.Core": "9.0.300"
         },
         "runtime": {
           "game-logic-fsharp.dll": {}
         }
       },
-      "FSharp.Core/9.0.303": {
+      "FSharp.Core/9.0.300": {
         "runtime": {
           "lib/netstandard2.1/FSharp.Core.dll": {
             "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.3.325.36101"
+            "fileVersion": "9.3.25.18101"
           }
         },
         "resources": {
@@ -71,12 +71,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "FSharp.Core/9.0.303": {
+    "FSharp.Core/9.0.300": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6JlV8aD8qQvcmfoe/PMOxCHXc0uX4lR23u0fAyQtnVQxYULLoTZgwgZHSnRcuUHOvS3wULFWcwdnP1iwslH60g==",
-      "path": "fsharp.core/9.0.303",
-      "hashPath": "fsharp.core.9.0.303.nupkg.sha512"
+      "sha512": "sha512-TVt2J7RCE1KCS2IaONF+p8/KIZ1eHNbW+7qmKF6hGoD4tXl+o07ja1mPtFjMqRa5uHMFaTrGTPn/m945WnDLiQ==",
+      "path": "fsharp.core/9.0.300",
+      "hashPath": "fsharp.core.9.0.300.nupkg.sha512"
     }
   }
 }

@@ -1,0 +1,14 @@
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\bin\Debug\net9.0\Sopa.Core.deps.json
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\bin\Debug\net9.0\Sopa.Core.dll
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\bin\Debug\net9.0\Sopa.Core.pdb
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\bin\Debug\net9.0\Sopa.Core.xml
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\obj\Debug\net9.0\Sopa.Core.fsproj.AssemblyReference.cache
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\obj\Debug\net9.0\Sopa.Core.AssemblyInfoInputs.cache
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\obj\Debug\net9.0\Sopa.Core.AssemblyInfo.fs
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\obj\Debug\net9.0\Sopa.Core.fsproj.CoreCompileInputs.cache
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\obj\Debug\net9.0\Sopa.Core.sourcelink.json
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\obj\Debug\net9.0\Sopa.Core.dll
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\obj\Debug\net9.0\refint\Sopa.Core.dll
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\obj\Debug\net9.0\Sopa.Core.xml
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\obj\Debug\net9.0\Sopa.Core.pdb
+C:\Users\jalpi\Documents\ProyectoLenguajes2\proyecto_lenguajes_2\juego-sopa-letras\backend\Sopa.Core\obj\Debug\net9.0\ref\Sopa.Core.dll

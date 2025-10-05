@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Domain.fs" />
+    <Compile Include="Serialization.fs" />
+    <Compile Include="Generator.fs" />
+    <Compile Include="Solver.fs" />
+    <Compile Include="Validator.fs" />
+  </ItemGroup>
+
+</Project>

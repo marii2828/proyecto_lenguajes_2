@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\acuna\\OneDrive\\Escritorio\\Proyecto\\juego-ahorcado\\backend\\game-logic-fsharp.fsproj": {}
+    "c:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-ahorcado\\backend\\game-logic-fsharp.fsproj": {}
   },
   "projects": {
-    "C:\\Users\\acuna\\OneDrive\\Escritorio\\Proyecto\\juego-ahorcado\\backend\\game-logic-fsharp.fsproj": {
+    "c:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-ahorcado\\backend\\game-logic-fsharp.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\acuna\\OneDrive\\Escritorio\\Proyecto\\juego-ahorcado\\backend\\game-logic-fsharp.fsproj",
+        "projectUniqueName": "c:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-ahorcado\\backend\\game-logic-fsharp.fsproj",
         "projectName": "game-logic-fsharp",
-        "projectPath": "C:\\Users\\acuna\\OneDrive\\Escritorio\\Proyecto\\juego-ahorcado\\backend\\game-logic-fsharp.fsproj",
-        "packagesPath": "C:\\Users\\acuna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\acuna\\OneDrive\\Escritorio\\Proyecto\\juego-ahorcado\\backend\\obj\\",
+        "projectPath": "c:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-ahorcado\\backend\\game-logic-fsharp.fsproj",
+        "packagesPath": "C:\\Users\\jalpi\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-ahorcado\\backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\acuna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jalpi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Program Files\\dotnet\\sdk\\9.0.305\\FSharp\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\9.0.300\\FSharp\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,7 +49,7 @@
             "FSharp.Core": {
               "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
               "target": "Package",
-              "version": "[9.0.303, )",
+              "version": "[9.0.300, )",
               "generatePathProperty": true
             }
           },
@@ -61,30 +64,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.20, 8.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.20, 8.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.20, 8.0.20]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.20, 8.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
