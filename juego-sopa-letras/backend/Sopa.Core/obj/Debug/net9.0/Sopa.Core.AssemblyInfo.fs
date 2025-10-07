@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("Sopa.Core")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49028153498b0c386a229052fab8335a584401db")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f6d5048fe58a41096e42bd1f1cf4b043331b1c9")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("Sopa.Core")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("Sopa.Core")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]

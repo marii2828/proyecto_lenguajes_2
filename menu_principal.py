@@ -37,7 +37,7 @@ class MenuPrincipal:
                                 font=("Arial", 18, "bold"), bg='#34495e', fg='#3498db')
         sopa_title.pack(pady=15)
         
-        sopa_desc = tk.Label(sopa_frame, text="Encuentra todas las palabras\nocultadas en la grilla de letras.\n\n• Personaliza el tamaño del tablero\n• Selecciona letras secuencialmente\n• Verifica tus palabras\n• Completa el desafío", 
+        sopa_desc = tk.Label(sopa_frame, text="Encuentra todas las palabras\nocultadas en la grilla de letras.\n\n• Personaliza el tamaño del tablero\n• Interfaz adaptable a tu pantalla\n• Selecciona letras secuencialmente\n• Verifica tus palabras", 
                             font=self.description_font, bg='#34495e', fg='#ecf0f1',
                             justify='center')
         sopa_desc.pack(pady=10)

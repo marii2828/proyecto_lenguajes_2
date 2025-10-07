@@ -1,34 +1,52 @@
 import tkinter as tk
 
 class Board:
-    def __init__(self, root, on_verify_callback, on_clear_callback):
-        self.frame = tk.Frame(root, bg='#2c3e50')
-        self.frame.pack(pady=10)
+    def __init__(self, parent_frame, on_verify_callback, on_clear_callback, on_word_update_callback=None):
+        self.parent_frame = parent_frame
+        self.frame = tk.Frame(parent_frame, bg='#2c3e50')
         self.on_verify = on_verify_callback
         self.on_clear = on_clear_callback
+        self.on_word_update = on_word_update_callback
         self.buttons = []
         self.size = 0
         self.selected_letters = []
         self.selection_colors = ['#e74c3c', '#f39c12', '#f1c40f', '#2ecc71', '#3498db', '#9b59b6', '#e67e22', '#95a5a6']
+
+    def get_frame(self):
+        return self.frame
+
+    def get_screen_dimensions(self):
+        try:
+            screen_width = self.parent_frame.winfo_screenwidth()
+            screen_height = self.parent_frame.winfo_screenheight()
+        except:
+            screen_width, screen_height = 1920, 1080  # Default
+        return screen_width, screen_height
+
+    def calculate_responsive_dimensions(self, grid_size):
+        screen_width, screen_height = self.get_screen_dimensions()
         
-        self.control_frame = tk.Frame(root, bg='#2c3e50')
-        self.control_frame.pack(pady=5)
+        available_width = int(screen_width * 0.75)
+        available_height = int(screen_height * 0.65)
         
-        self.verify_btn = tk.Button(self.control_frame, text="VERIFICAR", 
-                                    font=("Arial", 14, "bold"), bg='#27ae60', fg='white',
-                                    activebackground='#2ecc71', cursor='hand2',
-                                    command=self.verify_selection)
-        self.verify_btn.pack(side=tk.LEFT, padx=10)
+        max_button_space = min(available_width // grid_size, available_height // grid_size)
         
-        self.clear_btn = tk.Button(self.control_frame, text="LIMPIAR", 
-                                    font=("Arial", 14, "bold"), bg='#e74c3c', fg='white',
-                                    activebackground='#c0392b', cursor='hand2',
-                                    command=self.clear_selection)
-        self.clear_btn.pack(side=tk.LEFT, padx=10)
+        base_size = max(15, min(60, max_button_space))
         
-        self.word_label = tk.Label(root, text="Palabra: ", 
-                                    font=("Arial", 16, "bold"), bg='#2c3e50', fg='#ecf0f1')
-        self.word_label.pack(pady=5)
+        button_width = max(1, base_size // 12)
+        button_height = max(1, base_size // 24)
+        
+        if grid_size <= 12:
+            font_size = max(8, min(16, base_size // 3))
+            padding = max(1, base_size // 12)
+        elif grid_size <= 16:
+            font_size = max(6, min(14, base_size // 4))
+            padding = max(1, base_size // 15)
+        else:
+            font_size = max(5, min(12, base_size // 5))
+            padding = max(1, base_size // 18)
+        
+        return button_width, button_height, font_size, padding
 
     def draw(self, grid):
         for w in self.frame.winfo_children():
@@ -38,28 +56,14 @@ class Board:
         self.selected_letters.clear()
         self.size = len(grid)
         
-        # Ajustar tamaño de botones según el tamaño del tablero
-        if self.size <= 12:
-            button_width = 3
-            button_height = 1
-            font_size = 16
-            padding = 2
-        elif self.size <= 16:
-            button_width = 2
-            button_height = 1
-            font_size = 14
-            padding = 1
-        else:  # 17-20
-            button_width = 2
-            button_height = 1
-            font_size = 12
-            padding = 1
-
+        button_width, button_height, font_size, padding = self.calculate_responsive_dimensions(self.size)
+        
         for r, row in enumerate(grid):
             row_btns = []
             for c, ch in enumerate(row):
                 b = tk.Button(self.frame, text=ch, 
-                            width=button_width, height=button_height,
+                            width=button_width, 
+                            height=button_height,
                             font=("Consolas", font_size, "bold"),
                             bg='#ecf0f1', fg='#2c3e50',
                             activebackground='#bdc3c7',
@@ -140,9 +144,12 @@ class Board:
                 btn = self.buttons[coord["r"]][coord["c"]]
                 letter = btn.cget('text').split('\n')[0]
                 word += letter
-            self.word_label.config(text=f"Palabra: {word}")
+            display_text = f"Palabra: {word}"
         else:
-            self.word_label.config(text="Palabra: ")
+            display_text = "Palabra: "
+        
+        if self.on_word_update:
+            self.on_word_update(display_text)
 
     def verify_selection(self):
         if len(self.selected_letters) < 2:

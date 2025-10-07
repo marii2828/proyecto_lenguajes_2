@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C9sM2yxiA20=",
+  "dgSpecHash": "K8hQDzc3LX8=",
   "success": true,
-  "projectFilePath": "c:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-sopa-letras\\backend\\Sopa.Core\\Sopa.Core.fsproj",
+  "projectFilePath": "C:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-sopa-letras\\backend\\Sopa.Core\\Sopa.Core.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\jalpi\\.nuget\\packages\\fsharp.core\\9.0.300\\fsharp.core.9.0.300.nupkg.sha512"
   ],

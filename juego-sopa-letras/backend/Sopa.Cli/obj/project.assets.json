@@ -332,11 +332,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-sopa-letras\\backend\\Sopa.Cli\\Sopa.Cli.fsproj",
+      "projectUniqueName": "C:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-sopa-letras\\backend\\Sopa.Cli\\Sopa.Cli.fsproj",
       "projectName": "Sopa.Cli",
-      "projectPath": "c:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-sopa-letras\\backend\\Sopa.Cli\\Sopa.Cli.fsproj",
+      "projectPath": "C:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-sopa-letras\\backend\\Sopa.Cli\\Sopa.Cli.fsproj",
       "packagesPath": "C:\\Users\\jalpi\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-sopa-letras\\backend\\Sopa.Cli\\obj\\",
+      "outputPath": "C:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-sopa-letras\\backend\\Sopa.Cli\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -358,8 +358,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "c:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-sopa-letras\\backend\\Sopa.Core\\Sopa.Core.fsproj": {
-              "projectPath": "c:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-sopa-letras\\backend\\Sopa.Core\\Sopa.Core.fsproj"
+            "C:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-sopa-letras\\backend\\Sopa.Core\\Sopa.Core.fsproj": {
+              "projectPath": "C:\\Users\\jalpi\\Documents\\ProyectoLenguajes2\\proyecto_lenguajes_2\\juego-sopa-letras\\backend\\Sopa.Core\\Sopa.Core.fsproj"
             }
           }
         }
